@@ -1,23 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { Login } from "./pages";
+import "./styles/App.css";
+import Data from "./Data/Data";
+import { useState } from "react";
+import PAGES from "./constants/index";
+import Navbar from "./components/Navbar.component";
+
+const userInfo = {
+  name: "",
+  email: "",
+  type: "user",
+};
+
+const [vote, login, admin] = PAGES;
 
 function App() {
+  const [loggedUser, setLoggedUser] = useState(userInfo);
+  const [currentPage, setCurrentPage] = useState(login);
+  const database = Data;
+
+  const isCurrentPage = (page) => page === currentPage;
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {isCurrentPage(login) && (
+        <Login
+          usersData={database}
+          setLoggedUser={setLoggedUser}
+          setCurrentPage={setCurrentPage}
+        />
+      )}
+
+      {!isCurrentPage(login) && <Navbar setCurrentPage={setCurrentPage} user={loggedUser} setUser={setLoggedUser}/>}
+
+      {isCurrentPage(vote) && <div>vote</div>}
+
     </div>
   );
 }
