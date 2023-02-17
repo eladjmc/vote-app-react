@@ -7,6 +7,13 @@ const users = [
       email: 'tomas19@aol.com'
     },
     {
+      id: "7hZ2Q8cE7X",
+      name: 'Elad Harel',
+      password: '1234',
+      type: 'admin',
+      email: 'eladjmc88@gmail.com'
+    },
+    {
       id: "8dN4Q2eB2W",
       name: 'John Doe',
       password: '7GTHPPL',

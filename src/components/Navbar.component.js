@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FaUserCircle, FaCaretDown } from "react-icons/fa";
+import Logo from "../assets/images/logonav.png"
 
 import Wrapper from "../styles/styled/Navbar.styled";
 
@@ -17,13 +18,17 @@ const Navbar = ({ user, setUser, setCurrentPage }) => {
     setCurrentPage(login);
   };
 
+  const handleClickedVote = () => setCurrentPage(vote);
+  const handleClickedAdmin = () => setCurrentPage(admin);
+
   const isAdmin = () => user.type === ADMIN_USER;
   const adminsBtn = () => (isAdmin() ? "" : "not-admin-btn");
+
 
   return (
     <Wrapper>
       <div className="nav-center">
-        <div>logo-small</div>
+        <img src={Logo} height="60" alt="logo" />
         <div className="btn-container">
           <button
             type="button"
@@ -46,7 +51,7 @@ const Navbar = ({ user, setUser, setCurrentPage }) => {
             <button
               type="button"
               className={"dropdown-btn " + adminsBtn()}
-              onClick={handleLogout}
+              onClick={handleClickedVote}
             >
               vote
             </button>
@@ -54,7 +59,7 @@ const Navbar = ({ user, setUser, setCurrentPage }) => {
             <button
               type="button"
               className={"dropdown-btn " + adminsBtn()}
-              onClick={handleLogout}
+              onClick={handleClickedAdmin}
             >
               Admin
             </button>

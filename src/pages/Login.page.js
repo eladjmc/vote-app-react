@@ -1,7 +1,7 @@
 import { useState } from "react";
 import logo from "../assets/images/logo.png";
 import { validateEmail } from "../utils/validateEmail";
-import Wrapper from "../styles/styled/Landing.styled";
+import Wrapper from "../styles/styled/Login.styled";
 import FormRow from "../components/FormRow.component";
 import Modal from "../components/Modal.component";
 import PAGES from "../constants/index";

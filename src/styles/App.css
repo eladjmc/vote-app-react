@@ -252,8 +252,9 @@ ul {
   border-radius: var(--borderRadius);
   box-shadow: var(--shadow-2);
   padding: 2rem 2.5rem;
-  margin: 3rem auto;
+  margin: 0 auto;
   transition: var(--transition);
+
 }
 .form:hover {
   box-shadow: var(--shadow-4);
@@ -355,24 +356,51 @@ ul {
   }
 }
 .card {
+  position: relative;
   background: var(--clr-white);
   border-radius: var(--radius);
-  box-shadow: var(--light-shadow);
-  padding: 2rem 3.5rem;
+  box-shadow: var(--dark-shadow);
+  padding: 0 0 1.5rem 0 ;
   text-align: center;
-}
-.card img {
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 0.75rem;
+  border: #510f0f9e 3px solid;
+  
+  transition: .15s transform linear;
 }
 
+.card:hover {
+  transform: scale(1.1);
+  transition: transform .3s linear;
+}
+
+.card img {
+  background-color: #510f0f84;
+  width: 300px;
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+  object-fit: cover;
+  margin-bottom: 0.75rem;
+  border-bottom: var(--red-dark) 4px double;
+}
+.card .btn {
+  border: solid 1.5px transparent;
+  font-weight: bold;
+}
+.card .btn:hover {
+  border: solid 1.5px var(--red-dark);
+  font-weight: bold;
+}
+.card h3 {
+  margin: 0;
+  margin-bottom: 15px;
+}
 .card h4 {
+  position: absolute;
+  right: 10px;
+  top: 5px;
   margin-bottom: 1.5rem;
-  font-size: 0.85rem;
-  color: var(--clr-grey-5);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--red-dark);
 }
 
 .btn-container {
@@ -462,4 +490,33 @@ Modal
   color: var(--clr-white);
   cursor: pointer;
   margin-top: 2rem;
+}
+
+.vote-page {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding-top: 13px;
+  gap:20px;
+  min-height: calc(100vh - 6rem);
+  align-items: center;
+  background-color: #8420283a;
+  padding-bottom: 20px;
+}
+.vote-page h1 {
+  display: flex;
+  font-weight: 900;
+  -webkit-text-stroke: 2px rgba(0, 0, 0, 0.632);
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  color: var(--red-dark);
+}
+.vote-card-container {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 45px;
+  justify-content: center;
+  width: 100%;
 }

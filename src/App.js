@@ -4,6 +4,8 @@ import Data from "./Data/Data";
 import { useState } from "react";
 import PAGES from "./constants/index";
 import Navbar from "./components/Navbar.component";
+import Vote from "./pages/Vote.page";
+import VoteData from './Data/PartyData'
 
 const userInfo = {
   name: "",
@@ -13,9 +15,12 @@ const userInfo = {
 
 const [vote, login, admin] = PAGES;
 
+
 function App() {
   const [loggedUser, setLoggedUser] = useState(userInfo);
   const [currentPage, setCurrentPage] = useState(login);
+  const [votes,setVotes] = useState(VoteData)
+
   const database = Data;
 
   const isCurrentPage = (page) => page === currentPage;
@@ -32,7 +37,7 @@ function App() {
 
       {!isCurrentPage(login) && <Navbar setCurrentPage={setCurrentPage} user={loggedUser} setUser={setLoggedUser}/>}
 
-      {isCurrentPage(vote) && <div>vote</div>}
+      {isCurrentPage(vote) && <Vote votes={votes} setVotes={setVotes} />}
 
     </div>
   );

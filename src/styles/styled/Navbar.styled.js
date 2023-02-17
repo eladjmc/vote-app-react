@@ -1,6 +1,9 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Wrapper = styled.nav`
+  position: sticky;
+  top: 0;
+  z-index: 100;
   height: var(--nav-height);
   display: flex;
   align-items: center;
@@ -37,8 +40,15 @@ const Wrapper = styled.nav`
     gap: 0 0.5rem;
     position: relative;
     box-shadow: var(--shadow-2);
+    border: 1.5px solid transparent;
+    transition: all 0.2s;
   }
-
+  .btn:hover {
+    color: var(--red-dark);
+    background-color: white;
+    border: 1.5px solid var(--red-dark);
+    box-sizing: border-box;
+  }
   .dropdown {
     position: absolute;
     bottom: -105px;
@@ -51,8 +61,8 @@ const Wrapper = styled.nav`
     text-align: center;
     transform: scaleY(0) scaleX(0);
     transform-origin: top;
-    transition: transform  .2s;
-    border-radius: var(--borderRadius);    
+    transition: transform 0.2s;
+    border-radius: var(--borderRadius);
   }
   .show-dropdown {
     transform: scaleY(1) scaleX(1);
@@ -62,16 +72,17 @@ const Wrapper = styled.nav`
     box-shadow: var(--shadow-2);
     width: 100%;
     height: 30px;
-    background-color: var(--red-light);
+    background-color: white;
     border-color: transparent;
     color: var(--red-dark);
     letter-spacing: var(--letterSpacing);
+    border: var(--red-dark) solid 1px;
     text-transform: capitalize;
     cursor: pointer;
   }
 
   .dropdown-btn:hover {
-    background-color: #f3adb3; ;
+    background-color: #f3adb3;
     border: var(--red-dark) solid 1px;
   }
   .logo-text {
@@ -81,17 +92,46 @@ const Wrapper = styled.nav`
   @media (min-width: 992px) {
     position: sticky;
     top: 0;
+    z-index: 100;
 
     .nav-center {
       width: 90%;
-    }    
+    }
     .logo-text {
       display: block;
     }
+  }
 
-    .not-admin-btn {
-      visibility: hidden;
+  @media (min-width: 600px) {
+    .btn {
+      transform: scale(1.5);
     }
+    .dropdown {
+      top: 45px;
+    }
+    .show-dropdown {
+      transform: scale(1.5);
+    }
+  }
+
+  background-image: linear-gradient(
+    to right,
+    #84202855,
+    #84202855,
+    #8420289d,
+    var(--red-dark),
+    var(--red-dark),
+    var(--red-dark),
+    var(--red-dark),
+    var(--red-dark),
+    var(--red-dark),
+    #8420289d,
+    #84202855,
+    #84202855
+  );
+  box-shadow: 0px 2px 13px -4px rgba(0, 0, 0, 0.64);
+  .not-admin-btn {
+    visibility: hidden;
   }
 `;
 export default Wrapper;
