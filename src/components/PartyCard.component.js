@@ -15,28 +15,38 @@ const PartyCard = ({
   const [isCurrentlyVotingCard, setIsCurrentlyVotingCard] = useState(false);
 
   const handleAddVote = () => {
+
     setIsCurrentlyVoting(false);
     setIsCurrentlyVotingCard(false) 
 
     const allParties = allVotes.map((candidate) => {
+
       if (candidate.name === party.name) {
         candidate.votes += ADD_VOTE;
         candidate.voters.push(voter.id);
         setIsAbleToVote(false);
       }
+
       return candidate;
     });
+
     setVote(allParties);
+
   };
 
   const handleClickVote = () => {
     setIsCurrentlyVoting(true);
+
     setIsCurrentlyVotingCard(true)
+
   };
 
   const handleClickCancel = () => {
+
     setIsCurrentlyVoting(false);
+
     setIsCurrentlyVotingCard(false) 
+
   };
 
   return (
@@ -50,14 +60,18 @@ const PartyCard = ({
         </button>
       )}
       {isCurrentlyVoting && isCurrentlyVotingCard && (
+
         <div className="currently-vote-container">
+
           <button onClick={handleAddVote} className="btn">
             I'm Sure
           </button>
           <button onClick={handleClickCancel} className="btn">
             Cancel
           </button>
+          
         </div>
+
       )}
       {!isAbleToVote && (
         <button onClick={() => removeVote()} className="btn">

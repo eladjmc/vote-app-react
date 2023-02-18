@@ -3,21 +3,23 @@ import PartyCard from "../components/PartyCard.component";
 
 const REMOVE_VOTE = -1;
 
-const Vote = ({ setVotes, votes, voter }) => {
-  const isVotedBefore = () => {
-    let isVoted = false;
-    votes.forEach((candidate) => {
-      if (candidate.voters.includes(voter.id)) {
-        isVoted = true;
-      }
-    });
-    return isVoted;
-  };
+const isVotedBefore = (voter,votes) => {
+  let isVoted = false;
+  votes.forEach((candidate) => {
+    if (candidate.voters.includes(voter.id)) {
+      isVoted = true;
+    }
+  });
+  return isVoted;
+};
 
-  const [isAbleToVote, setIsAbleToVote] = useState(!isVotedBefore());
+const Vote = ({ setVotes, votes, voter }) => {
+  
+  const [isAbleToVote, setIsAbleToVote] = useState(!isVotedBefore(voter,votes));
   const [isCurrentlyVoting, setIsCurrentlyVoting] = useState(false);
 
   const removeVote = () => {
+
     votes.forEach((candidate) => {
       if (candidate.voters.includes(voter.id)) {
         const index = candidate.voters.indexOf(voter.id);
@@ -25,7 +27,8 @@ const Vote = ({ setVotes, votes, voter }) => {
           candidate.voters.splice(index, 1);
           candidate.votes += REMOVE_VOTE;
           setIsAbleToVote(true);
-          setVotes(votes);
+          setVotes([...votes]);
+          
         }
       }
     });

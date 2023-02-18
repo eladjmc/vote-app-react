@@ -1,26 +1,46 @@
 import { Login } from "./pages";
 import "./styles/App.css";
 import Data from "./Data/Data";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PAGES from "./constants/index";
 import Navbar from "./components/Navbar.component";
 import Vote from "./pages/Vote.page";
-import VoteData from './Data/PartyData'
+import VoteData from "./Data/PartyData";
+import Admin from "./pages/Admin.page";
 
-const userInfo = {
+const EMPTY_USER = {
   id: "",
   name: "",
   email: "",
   type: "user",
 };
 
+const userInfo = JSON.parse(localStorage.getItem("loggedUser")) || EMPTY_USER;
+
 const [vote, login, admin] = PAGES;
 
+const votesLocalData = JSON.parse(localStorage.getItem("voteData")) || VoteData;
 
 function App() {
   const [loggedUser, setLoggedUser] = useState(userInfo);
-  const [currentPage, setCurrentPage] = useState(login);
-  const [votes,setVotes] = useState(VoteData);
+  const [currentPage, setCurrentPage] = useState(
+    userInfo.id === "" ? login : vote
+  );
+  const [votes, setVotes] = useState(votesLocalData);
+
+  useEffect(() => {
+    localStorage.setItem("voteData", JSON.stringify(votes));
+  }, [votes]);
+
+  useEffect(() => {
+    localStorage.setItem("loggedUser", JSON.stringify(loggedUser));
+
+    if (loggedUser.id === "") {
+      setCurrentPage(login);
+    } else {
+      setCurrentPage(vote);
+    }
+  }, [loggedUser]);
 
   const database = Data;
 
@@ -36,10 +56,19 @@ function App() {
         />
       )}
 
-      {!isCurrentPage(login) && <Navbar setCurrentPage={setCurrentPage} user={loggedUser} setUser={setLoggedUser}/>}
+      {!isCurrentPage(login) && (
+        <Navbar
+          setCurrentPage={setCurrentPage}
+          user={loggedUser}
+          setUser={setLoggedUser}
+        />
+      )}
 
-      {isCurrentPage(vote) && <Vote voter={loggedUser} votes={votes} setVotes={setVotes} />}
+      {isCurrentPage(vote) && (
+        <Vote voter={loggedUser} votes={votes} setVotes={setVotes} />
+      )}
 
+      {isCurrentPage(admin) && <Admin users={database} candidatesList={votes} />}
     </div>
   );
 }
