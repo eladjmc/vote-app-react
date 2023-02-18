@@ -113,6 +113,7 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 
 ## Some Valid Emails+Passwords to play around with the app
 Mail: ```tomas19@aol.com``` Password: ```1234``` type: ```User```
+
 Mail: ```alicelee@gmail.com``` Password: ```2NDJYFL``` type: ```Admin```
 
 # Conclusion:
