@@ -68,6 +68,7 @@ const Login = ({setLoggedUser, usersData, setCurrentPage }) => {
           setTimeout(() => {
             setCurrentPage(vote);
             setLoggedUser({
+              id: userData.id,
               name: userData.name,
               email: userData.email,
               type: userData.type,

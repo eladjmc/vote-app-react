@@ -9,24 +9,28 @@ const partyVotes = [
       name: 'Goku',
       votes: 0,
       img: gokuImage,
+      voters: []
     },
     {
       id: 'eladjmc2',
       name: 'Vegeta',
       votes: 0,
       img: vegetaImage,
+      voters: []
     },
     {
       id: 'eladjmc3',
       name: 'Gohan',
       votes: 0,
       img: gohanImage,
+      voters: []
     },
     {
       id: 'eladjmc4',
       name: 'Cell',
       votes: 0,
       img: cellImage,
+      voters: []
     },
   ];
 

@@ -5,7 +5,7 @@
 }
 
 /* fonts */
-@import url('https://fonts.googleapis.com/css2?family=Cabin&family=Roboto+Condensed:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cabin&family=Roboto+Condensed:wght@400;700&display=swap");
 
 html {
   font-size: 100%;
@@ -73,8 +73,8 @@ html {
   --green-dark: #0f5132;
 
   /* fonts  */
-  --headingFont: 'Roboto Condensed', Sans-Serif;
-  --bodyFont: 'Cabin', Sans-Serif;
+  --headingFont: "Roboto Condensed", Sans-Serif;
+  --bodyFont: "Cabin", Sans-Serif;
   --small-text: 0.875rem;
   --extra-small-text: 0.7em;
   /* rest of the vars */
@@ -254,7 +254,6 @@ ul {
   padding: 2rem 2.5rem;
   margin: 0 auto;
   transition: var(--transition);
-
 }
 .form:hover {
   box-shadow: var(--shadow-4);
@@ -281,9 +280,8 @@ ul {
   height: 35px;
 }
 
-
 .form-input.error {
-  border: 2px solid var(--clr-red-dark);  
+  border: 2px solid var(--clr-red-dark);
 }
 
 .form-row {
@@ -307,7 +305,6 @@ ul {
   align-items: center;
   justify-content: center;
 }
-
 
 /* title */
 
@@ -360,16 +357,16 @@ ul {
   background: var(--clr-white);
   border-radius: var(--radius);
   box-shadow: var(--dark-shadow);
-  padding: 0 0 1.5rem 0 ;
+  padding: 0 0 1.5rem 0;
   text-align: center;
   border: #510f0f9e 3px solid;
-  
-  transition: .15s transform linear;
+
+  transition: 0.15s transform linear;
 }
 
 .card:hover {
   transform: scale(1.1);
-  transition: transform .3s linear;
+  transition: transform 0.3s linear;
 }
 
 .card img {
@@ -435,7 +432,6 @@ ul {
   cursor: pointer;
 }
 
-
 /*
 =============== 
 Modal
@@ -467,7 +463,7 @@ Modal
   display: grid;
   place-items: center;
   position: relative;
-  border: solid .3rem var(--clr-red-dark);
+  border: solid 0.3rem var(--clr-red-dark);
 }
 
 .modal-container h2 {
@@ -485,7 +481,7 @@ Modal
   bottom: 3rem;
   right: 50%;
   transform: translateX(50%);
-  padding: .35rem 1.5rem;
+  padding: 0.35rem 1.5rem;
   font-size: 1rem;
   color: var(--clr-white);
   cursor: pointer;
@@ -497,7 +493,7 @@ Modal
   flex-direction: column;
   flex-wrap: wrap;
   padding-top: 13px;
-  gap:20px;
+  gap: 20px;
   min-height: calc(100vh - 6rem);
   align-items: center;
   background-color: #8420283a;
@@ -506,11 +502,12 @@ Modal
 .vote-page h1 {
   display: flex;
   font-weight: 900;
-  -webkit-text-stroke: 2px rgba(0, 0, 0, 0.632);
+  -webkit-text-stroke: 1.5px rgba(0, 0, 0, 0.632);
   align-items: center;
   justify-content: center;
   margin: 0;
   color: var(--red-dark);
+  opacity: 0.9;
 }
 .vote-card-container {
   margin-top: 30px;
@@ -519,4 +516,13 @@ Modal
   gap: 45px;
   justify-content: center;
   width: 100%;
+
+
+}
+
+.currently-vote-container {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  justify-content: center;
 }

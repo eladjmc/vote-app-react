@@ -8,6 +8,7 @@ import Vote from "./pages/Vote.page";
 import VoteData from './Data/PartyData'
 
 const userInfo = {
+  id: "",
   name: "",
   email: "",
   type: "user",
@@ -19,7 +20,7 @@ const [vote, login, admin] = PAGES;
 function App() {
   const [loggedUser, setLoggedUser] = useState(userInfo);
   const [currentPage, setCurrentPage] = useState(login);
-  const [votes,setVotes] = useState(VoteData)
+  const [votes,setVotes] = useState(VoteData);
 
   const database = Data;
 
@@ -37,7 +38,7 @@ function App() {
 
       {!isCurrentPage(login) && <Navbar setCurrentPage={setCurrentPage} user={loggedUser} setUser={setLoggedUser}/>}
 
-      {isCurrentPage(vote) && <Vote votes={votes} setVotes={setVotes} />}
+      {isCurrentPage(vote) && <Vote voter={loggedUser} votes={votes} setVotes={setVotes} />}
 
     </div>
   );

@@ -114,22 +114,42 @@ const Wrapper = styled.nav`
     }
   }
 
+  /* background-image: linear-gradient(to top, #934343, #9f5352, #ab6261, #b77271, #c28281, #cc9196, #d4a0a9, #dcb0bc, #e1c4d3, #e8d8e6, #f1ecf4, #ffffff); */
+
   background-image: linear-gradient(
-    to right,
-    #84202855,
-    #84202855,
-    #8420289d,
+    to bottom,
     var(--red-dark),
-    var(--red-dark),
-    var(--red-dark),
-    var(--red-dark),
-    var(--red-dark),
-    var(--red-dark),
-    #8420289d,
-    #84202855,
-    #84202855
+    #fff,
+    #fff,
+    #fff,
+    #fff,
+    #fff,
+    #fff,
+    #fff,
+    #fff,
+    #fff,
+    var(--red-dark)
   );
-  box-shadow: 0px 2px 13px -4px rgba(0, 0, 0, 0.64);
+  /* #8420288b, */
+
+  /* background-image: linear-gradient(
+    to bottom,
+    #934343,
+    #9f5352,
+    #ab6261,
+    #b77271,
+    #c28281,
+    #cc9196,
+    #d4a0a9,
+    #dcb0bc,
+    #e1c4d3,
+    #e8d8e6,
+    #f1ecf4,
+    #ffffff
+  ); */
+
+  /* box-shadow: 0px 2px 13px -4px rgba(0, 0, 0, 0.64); */
+  box-shadow: 0px 6px 7px -7px rgba(0, 0, 0, 0.95);
   .not-admin-btn {
     visibility: hidden;
   }
