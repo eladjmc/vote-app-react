@@ -62,8 +62,6 @@ const Login = ({setLoggedUser, usersData, setCurrentPage }) => {
           setIsLoading(false);
         } else {
           setPasswordError(false);
-          // TODO: Logged in logic
-          console.log("Logged-In");
 
           setTimeout(() => {
             setCurrentPage(vote);

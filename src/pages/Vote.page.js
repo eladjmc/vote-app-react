@@ -15,6 +15,7 @@ const Vote = ({ setVotes, votes, voter }) => {
   };
 
   const [isAbleToVote, setIsAbleToVote] = useState(!isVotedBefore());
+  const [isCurrentlyVoting, setIsCurrentlyVoting] = useState(false);
 
   const removeVote = () => {
     votes.forEach((candidate) => {
@@ -44,6 +45,8 @@ const Vote = ({ setVotes, votes, voter }) => {
             isAbleToVote={isAbleToVote}
             setIsAbleToVote={setIsAbleToVote}
             removeVote={removeVote}
+            isCurrentlyVoting={isCurrentlyVoting}
+            setIsCurrentlyVoting={setIsCurrentlyVoting}
           />
         ))}
       </div>

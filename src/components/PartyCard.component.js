@@ -9,11 +9,14 @@ const PartyCard = ({
   setIsAbleToVote,
   isAbleToVote,
   removeVote,
+  isCurrentlyVoting,
+  setIsCurrentlyVoting
 }) => {
-  const [isCurrentlyVoting, setIsCurrentlyVoting] = useState(false);
+  const [isCurrentlyVotingCard, setIsCurrentlyVotingCard] = useState(false);
 
   const handleAddVote = () => {
     setIsCurrentlyVoting(false);
+    setIsCurrentlyVotingCard(false) 
 
     const allParties = allVotes.map((candidate) => {
       if (candidate.name === party.name) {
@@ -28,10 +31,12 @@ const PartyCard = ({
 
   const handleClickVote = () => {
     setIsCurrentlyVoting(true);
+    setIsCurrentlyVotingCard(true)
   };
 
   const handleClickCancel = () => {
     setIsCurrentlyVoting(false);
+    setIsCurrentlyVotingCard(false) 
   };
 
   return (
@@ -44,7 +49,7 @@ const PartyCard = ({
           Vote
         </button>
       )}
-      {isCurrentlyVoting && (
+      {isCurrentlyVoting && isCurrentlyVotingCard && (
         <div className="currently-vote-container">
           <button onClick={handleAddVote} className="btn">
             I'm Sure
