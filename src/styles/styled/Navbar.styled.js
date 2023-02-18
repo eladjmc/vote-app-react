@@ -149,6 +149,7 @@ const Wrapper = styled.nav`
   ); */
 
   /* box-shadow: 0px 2px 13px -4px rgba(0, 0, 0, 0.64); */
+
   
   box-shadow: 0px 6px 7px -7px rgba(0, 0, 0, 0.95);
   .not-admin-btn {
